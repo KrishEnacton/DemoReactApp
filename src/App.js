@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Link, Switch, NavLink } from "react-router-dom";
-import TmpFile from './tmpFile';
+import { Route, Link, Switch, NavLink } from "react-router-dom";
+// import TmpFile from './tmpFile';
 
 function App() {
   const [state, setState] = useState("Krishna");
@@ -40,7 +38,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={demo} />
-      <Route path="/tmpFile/:id" component={TmpFile} />
+      {/* <Route path="/tmpFile/:id" component={TmpFile} /> */}
 
     </Switch>
 
