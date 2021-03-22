@@ -21,7 +21,22 @@ const AddRecord = () => {
     // console.log("Page Render");
 
     useEffect(() => {
-        // console.log("Data:", record[0]);
+        // if (document.readyState === "complete") {
+
+        //     console.log("Data:", uname);
+        // }
+        var readyStateCheckInterval = setInterval(function () {
+            if (document.readyState === "complete") {
+                document.getElementById('uname').focus()
+                var uname = document.getElementById('uname');
+                // console.log("uname:", uname);
+                if (uname === document.activeElement) {
+                    console.log("activeElement:");
+
+                }
+            }
+            clearInterval(readyStateCheckInterval);
+        }, 10);
         // dispatch(RequestGetRecord_Action());
     }, [record])
 
