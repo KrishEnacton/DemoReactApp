@@ -14,11 +14,11 @@ function App() {
   const handleInputChange = (event) => {
     //alert("Hello");
     //setState(state + 1);
-    console.log("event:", event);
+    // console.log("event:", event);
     setState(event.target.value);
     var v1 = ["krishna", "kapadia"];
     var v2 = [...v1, "hello"];
-    console.log("val:", v2);
+    // console.log("val:", v2);
   }
 
   const demo = () => {

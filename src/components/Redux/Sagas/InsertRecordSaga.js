@@ -3,7 +3,7 @@ import { call } from 'redux-saga/effects';
 export function* CatchRequestInsert(data) {
     try {
         yield call(CallApiForInsert, data);
-        console.log("sagaCalled : ");
+        // console.log("sagaCalled : ");
         // yield put(SuccessInsertRecord_Action(res));
     } catch (e) {
         console.log("Error:", e);

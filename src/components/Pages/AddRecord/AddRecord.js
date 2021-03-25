@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { RequestGetRecord_Action, RequestInsertRecord_Action } from '../../Redux/Actions';
 
-const AddRecord = () => {
+const AddRecord = (props) => {
     const [userInfo, setUserInfo] = useState({
         uname: "",
         pwd: "",
@@ -15,7 +15,7 @@ const AddRecord = () => {
 
     useEffect(() => {
         dispatch(RequestGetRecord_Action());
-        // console.log("1st effect")
+        // console.log("effect called");
     }, [dispatch])
 
     // console.log("Page Render");
@@ -28,12 +28,12 @@ const AddRecord = () => {
         var readyStateCheckInterval = setInterval(function () {
             if (document.readyState === "complete") {
                 document.getElementById('uname').focus()
-                var uname = document.getElementById('uname');
-                // console.log("uname:", uname);
-                if (uname === document.activeElement) {
-                    console.log("activeElement:");
+                // var uname = document.getElementById('uname');
+                // // console.log("uname:", uname);
+                // if (uname === document.activeElement) {
+                //     console.log("activeElement:");
 
-                }
+                // }
             }
             clearInterval(readyStateCheckInterval);
         }, 10);
@@ -81,7 +81,7 @@ const AddRecord = () => {
 
     return (
         <div className="App-header" >
-            <Link to="/">Home</Link>
+            <Link onClick={() => props.history.goBack()}>Home</Link>
             <h1>Add Record</h1>
             Enter Username : <input value={userInfo.uname} onChange={inputHandler} name="uname" id="uname" />
             <br />

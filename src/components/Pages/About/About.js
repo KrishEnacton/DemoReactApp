@@ -3,11 +3,11 @@ import { Link, useParams } from "react-router-dom";
 
 function About(props) {
     const params = useParams();
-    console.log("Props:", props);
+    // console.log("Props:", props);
     return (
         <div>
             <header className="App-header">
-                <Link to="/" >ClickMe</Link>
+                <Link onClick={() => props.history.goBack()}> ClickMe</Link>
                 {params.id ?
                     <span>Hello Second Page:{params.id}</span>
                     : null}

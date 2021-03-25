@@ -9,7 +9,7 @@ const ApiReducer = (state = initState, action) => {
 
     switch (action.type) {
         case SUCCESS_INSERT_RECORD:
-            console.log("SUCCESS_INSERT_RECORD Called");
+            // console.log("SUCCESS_INSERT_RECORD Called");
             return state;
 
         case SUCCESS_GET_RECORD:

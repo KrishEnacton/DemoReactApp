@@ -11,14 +11,14 @@ app.get('/', (req, res) => {
     //console.log(req.query);
     connection.query(`select * from tbluser `, function (err, rows, fields) {
         if (err) throw err
-        console.log('Inserted:', rows);
+        // console.log('Inserted:', rows);
         res.send(rows);
     })
     // res.send('Hello World!');
 })
 
 app.get('/insert', (req, res) => {
-    console.log(req.query);
+    // console.log(req.query);
     connection.query(`insert INTO tbluser VALUES(null,'${req.query.uname}','${req.query.pwd}','${req.query.email}')`, function (err, rows, fields) {
         if (err) throw err
         console.log('Inserted');
