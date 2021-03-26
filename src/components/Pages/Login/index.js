@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
 
 const Login = (props) => {
-    useEffect(() => {
-        document.addEventListener("keydown", enterPressed, false);
-    }, [])
     const enterPressed = (event) => {
 
         var body = document.getElementsByTagName('body')[0]
@@ -25,6 +22,10 @@ const Login = (props) => {
         //     props?.history?.goBack();
         // }
     }
+    useEffect(() => {
+        document.addEventListener("keydown", enterPressed, false);
+    }, [])
+
     return (
         <div id="mydiv">
             Login Page
