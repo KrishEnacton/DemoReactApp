@@ -1,34 +1,34 @@
 import React, { useEffect } from 'react'
+import { auth, provider } from '../../Firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Route, Switch, useHistory } from "react-router-dom";
 
 const Login = (props) => {
-    const enterPressed = (event) => {
 
-        var body = document.getElementsByTagName('body')[0]
-        var activeElement = document.activeElement;
-        // var uname = document.getElementById('uname');
-        // console.log("Active Element:", activeElement)
-        // console.log("body:", body)
-        if (body === activeElement) {
-            // console.log("Krishna")
-            // if ()
-            if (event.keyCode === 8) {
-                // console.log("Event:", event);
-                props?.history?.goBack();
-            }
+    const [user, loading, error] = useAuthState(auth);
+    const history = useHistory();
+
+
+    useEffect(() => {
+        if (user) {
+            history.push("Whatsapp");
+        }
+        else {
         }
 
-        // if (props.history.location.pathname === "/Login" || props.history.location.pathname === "/About" && event.keyCode === 8) {
-        //     console.log("Event:", event);
-        //     props?.history?.goBack();
-        // }
+    }, [loading, user])
+
+    const signinHandler = () => {
+        auth.signInWithPopup(provider).catch(err => {
+            console.log("Error:", err);
+        })
     }
-    useEffect(() => {
-        document.addEventListener("keydown", enterPressed, false);
-    }, [])
 
     return (
-        <div id="mydiv">
-            Login Page
+        <div id="mydiv" style={{ height: 100, backgroundColor: "red", textAlign: "center", paddingTop: 10 }} >
+            <button id="btnSignin" style={{ flex: 1, alignSelf: "center" }} onClick={signinHandler} >
+                Sign in with google
+            </button>
         </div>
     )
 }

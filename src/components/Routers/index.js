@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from "react-router-dom";
 import About from '../Pages/About/About';
 import AddRecord from '../Pages/AddRecord/AddRecord';
 import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login';
+import Whatsapp from '../Pages/Whatsapp';
 
-const Routers = () => {
+const Routers = (props) => {
+
 
     return (
         <Switch>
@@ -16,6 +18,7 @@ const Routers = () => {
             {/* <Route path="/About" render={About} /> */}
             <Route path="/Add" component={AddRecord} />
             <Route exact path="/Login" component={Login} />
+            <Route exact path="/Whatsapp" component={Whatsapp} />
         </Switch>
     )
 }
